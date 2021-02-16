@@ -47,15 +47,29 @@ int main(int argc, const char **argv)
         std::cout << "Reading OpenStreetMap data from the following file: " <<  osm_data_file << std::endl;
         auto data = ReadFile(osm_data_file);
         if( !data )
+          
             std::cout << "Failed to read." << std::endl;
         else
             osm_data = std::move(*data);
+
     }
     
     // TODO 1: Declare floats `start_x`, `start_y`, `end_x`, and `end_y` and get
     // user input for these values using std::cin. Pass the user input to the
     // RoutePlanner object below in place of 10, 10, 90, 90.
-
+    float start_x, start_y, end_x, end_y;
+  	std::cout << "Enter starting x coordinate" << std::endl;
+  	std::cin >> start_x;
+  
+  	std::cout << "Enter starting y coordinate" << std::endl;
+  	std::cin >> start_y;
+  
+  	std::cout << "Enter end x coordinate" << std::endl;
+  	std::cin >> end_x;
+  	
+  	std::cout << "Enter end y coordinate" << std::endl;
+  	std::cin >> end_y;
+  
     // Build Model.
     RouteModel model{osm_data};
 
